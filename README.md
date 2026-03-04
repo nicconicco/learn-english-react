@@ -40,3 +40,9 @@ Abra `http://localhost:5173`.
   - `src/feature-apps/progress/definition.tsx`
   - `src/feature-apps/flashcards/definition.tsx`
 - Conteúdo de flashcards: `src/content/flashcards.ts`
+
+## Fase 1 (docs)
+
+- PDF: `docs/fase-1/fase-1-arquitetura.pdf`
+- Fonte (markdown): `docs/fase-1/fase-1-arquitetura.md`
+- Gerar novamente: `python3 scripts/generate_fase1_pdf.py`

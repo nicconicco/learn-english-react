@@ -59,6 +59,38 @@ function LessonView({lesson, progressService}: {lesson: Lesson; progressService:
           <div className="divider" />
           <h2>Conceito</h2>
           <p className="muted">{lesson.concept}</p>
+          {lesson.codeExamples?.length ? (
+            <>
+              <div className="divider" />
+              <h2>Boas práticas vs anti-padrões</h2>
+              <div className="list">
+                {lesson.codeExamples.map((ex) => (
+                  <div key={ex.title} className="card" style={{background: 'rgba(0,0,0,0.18)'}}>
+                    <h3 style={{marginTop: 0}}>{ex.title}</h3>
+                    <div style={{display: 'grid', gap: 12}}>
+                      <div>
+                        <div className="muted" style={{marginBottom: 6}}>
+                          {ex.doTitle ?? 'Como fazer'}
+                        </div>
+                        <pre className="codeBlock">
+                          <code>{ex.doCode}</code>
+                        </pre>
+                      </div>
+                      <div>
+                        <div className="muted" style={{marginBottom: 6}}>
+                          {ex.dontTitle ?? 'Como não fazer'}
+                        </div>
+                        <pre className="codeBlock codeBlockDanger">
+                          <code>{ex.dontCode}</code>
+                        </pre>
+                      </div>
+                      {ex.notes ? <div className="muted">{ex.notes}</div> : null}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : null}
           <div className="divider" />
           <h2>Try it</h2>
           <TryIt lesson={lesson} />
